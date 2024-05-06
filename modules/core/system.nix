@@ -31,7 +31,7 @@ in{
     nix-output-monitor
     nvd
     unetbootin
-    hwdata
+    nerdfonts
 ];
 
   time.timeZone = "America/New_York";

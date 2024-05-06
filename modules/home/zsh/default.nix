@@ -32,7 +32,7 @@ in {
       ls = "eza --icons --long";
       startbg = " nohup ~/flake/backgrounds/swww_randomize.sh ~/flake/backgrounds > output.log 2>&1 &";
       # nixos
-      fl = "cd ~/flake/ && v";
+      fl = "cd ~/flake2/ && v";
       notes = "cd ~/notes/ && v";
       music = "ncspot";
     };
