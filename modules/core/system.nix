@@ -26,11 +26,9 @@ in{
   environment.systemPackages = with pkgs; [
     wget
     git
-    x11_ssh_askpass
     nh
     nix-output-monitor
     nvd
-    unetbootin
     nerdfonts
 ];
 
