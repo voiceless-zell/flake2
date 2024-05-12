@@ -321,7 +321,8 @@
         "nix-gaming": "nix-gaming",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "obsidian-nvim": "obsidian-nvim"
+        "obsidian-nvim": "obsidian-nvim",
+        "vimwiki": "vimwiki"
       }
     },
     "systems": {
@@ -371,6 +372,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vimwiki": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710609808,
+        "narHash": "sha256-+gK2rS4PoBMkTTibCh1un4XKVdPABFVbLq7Xwr6A63w=",
+        "owner": "vimwiki",
+        "repo": "vimwiki",
+        "rev": "69318e74c88ef7677e2496fd0a836446ceac61e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vimwiki",
+        "repo": "vimwiki",
         "type": "github"
       }
     },

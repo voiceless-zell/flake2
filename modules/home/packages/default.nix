@@ -56,10 +56,11 @@
       inputs.nix-citizen.packages.${system}.star-citizen-helper
       inputs.nix-citizen.packages.${system}.lug-helper
       lutris
-    #  wineWowPackages.waylandFull
-    #  winetricks
+      wine64
+      winetricks
       python312Packages.huggingface-hub
       ferium
+      minecraft
 ];
     };
 }
