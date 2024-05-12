@@ -13,8 +13,8 @@ in{
      target = "hyprland-session.target";
     };
   };
-#  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
-#    mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
-#  });
+  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
+    mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
+  });
   };
 }
