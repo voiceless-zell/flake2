@@ -2,17 +2,16 @@
   config,
   pkgs,
   lib,
+  isNIXOS,
   ...
 }: 
 with lib;
   let
     cfg = config.modules.mako;
 in {
-  options.modules.mako = { enable = mkEnableOption "mako";};
-  config = mkIf cfg.enable {
   services = {
     mako = {
-      enable = true;
+      enable = isNIXOS;
       font = "JetBrainsMono Nerd Font 11";
       padding = "20";
       defaultTimeout = 5000;
@@ -28,6 +27,5 @@ in {
         border-color=#B45C65
       '';
     };
-  };
   };
 }

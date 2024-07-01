@@ -2,6 +2,7 @@
 , pkgs
 , lib
 , config
+, isNIXOS
 , ...
 }:
 with lib;
@@ -9,8 +10,6 @@ let
 cfg = config.modules.hyprland;
 
 in {
-  options.modules.hyprland = {enable = mkEnableOption "hyprland"; };
-  config = mkIf cfg.enable {
   home.packages = with pkgs; [
     swww
     hyprpicker
@@ -30,12 +29,11 @@ in {
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
       systemd.enable = true;
-    enable = true;
+    enable = isNIXOS;
     xwayland = {
-      enable = true;
+      enable = isNIXOS;
     #  hidpi = true;
     };
     #nvidiaPatches = false;
-  };
   };
 }

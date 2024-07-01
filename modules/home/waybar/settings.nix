@@ -4,16 +4,12 @@ let
   cfg = config.modules.waybarsetting;
 in{
 
-  options.modules.waybarsetting = { enable = mkEnableOption "waybarsetting"; };
-  config = mkIf cfg.enable {
   programs.waybar.settings = [
     {
       "layer" = "top";
       "position" = "top";
       modules-left = [
-        "custom/launcher"
         "temperature"
-        "idle_inhibitor"
         "hyprland/workspaces" 
         "battery"
       ];
@@ -32,20 +28,8 @@ in{
         "cava"
         "tray"
       ];
-      "custom/launcher" = {
-        "format" = " ";
-        "on-click" = "pkill wofi || wofi";
-        "tooltip" = false;
-      };
-      "idle_inhibitor" = {
-        "format" = "{icon}";
-        "format-icons" = {
-          "activated" = "";
-          "deactivated" = "";
-        };
-      };
       "disk" = {
-        "path" = "/home";
+        "path" = "/";
         "format" = "󰋊 {percentage_used}%";
       };
       "hyprland/workspaces" = {
@@ -108,7 +92,7 @@ in{
       "temperature" = {
         "tooltip" = false;
         "thermal-zone" = 2;
-        "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";
+        "hwmon-path" = "/sys/class/hwmon/hwmon0/temp1_input";
         "format" = " {temperatureF}°F";
       };
       "cava" = {
@@ -136,5 +120,4 @@ in{
       };
     }
   ];
-};
 }

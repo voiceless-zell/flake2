@@ -4,8 +4,6 @@ with lib;
     cfg = config.modules.hyprvar;
 in
 {
-  options.modules.hyprvar = { enable = mkEnableOption "hyprvar"; };
-  config = mkIf cfg.enable {
   home.sessionVariables = {
     FLAKE = "/home/zell/flake2/";
     NIXOS_OZONE_WL = "1";
@@ -32,6 +30,5 @@ in
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
     NVD_BACKEND = "direct";
- };
   };
 }

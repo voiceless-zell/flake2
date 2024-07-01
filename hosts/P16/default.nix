@@ -3,6 +3,7 @@
   imports = [
       ./hardware-configuration.nix
       ./nix.nix
+      ./homemanager.nix
       ./../../modules/core/steam.nix
       ./../../modules/core/virtualisation.nix
       ./../../modules/core/pipewire.nix

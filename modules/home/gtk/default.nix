@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, config, inputs, isNIXOS, ... }:
 with lib;
 let
 cfg = config.modules.gtk;
@@ -10,11 +10,9 @@ cfg = config.modules.gtk;
   };
 in
 {
-  options.modules.gtk = { enable = mkEnableOption "gtk";};
-  config = mkIf cfg.enable {
       xdg.dataFile."themes/Tokyo-Night".source = Tokyo-Night;
       gtk = {
-      enable = true;
+      enable = isNIXOS;
       iconTheme = {
         package = Tokyo-Night;
         name = "Tokyo-Night";
@@ -24,5 +22,5 @@ in
         name = "Tokyo-Night";
       };
     };
-  };
+  
 }

@@ -3,18 +3,17 @@
   lib,
   config,
   inputs,
+  isNIXOS,
   ...
 }:
 with lib;
   let
     cfg = config.modules.swaylock;
 in{
-  options.modules.swaylock = { enable = mkEnableOption "swaylock"; };
-  config = mkIf cfg.enable {
   # home.packages = with pkgs; [swaylock-effects];
   
   programs.swaylock = {
-    enable = true;
+    enable = isNIXOS;
     package = pkgs.swaylock-effects;
     settings = {
       clock = true;
@@ -33,7 +32,7 @@ in{
   };
 
   services.swayidle = {
-    enable = true;
+    enable = isNIXOS;
     events = [
       {
         event = "before-sleep";
@@ -63,5 +62,4 @@ in{
   };
 
   systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
-  };
 }

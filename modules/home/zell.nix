@@ -24,21 +24,11 @@
         ncspot.enable = true;
         lazyvim.enable = true;
         tmux.enable = true;
-        waybar.enable = true;
-        waybarsetting.enable = true;
-        waybarstyle.enable = true;
-        hyprland.enable = true;
-        hyprconfig.enable = true;
-        hyprvar.enable = true;
         git.enable = true;
         foot.enable = true;
-        swaylock.enable = true;
         wofi.enable = true;
         zsh.enable = true;
-        mako.enable = true;
-        starship.enable= true;
         wlogout.enable = true;
         packages.enable = true;
-        gtk.enable = true;
     };
 }

@@ -3,8 +3,6 @@ with lib;
 let
   cfg = config.modules.hyprconfig;
 in{
-options.modules.hyprconfig = { enable = mkEnableOption "hyprconfig"; };
-config = mkIf cfg.enable {
 
 
   wayland.windowManager.hyprland = {
@@ -66,9 +64,9 @@ config = mkIf cfg.enable {
 
 
       decoration {
-          rounding = 0
-          active_opacity = 0.9000;
-          inactive_opacity = 0.50;
+          rounding = 10
+          active_opacity = 0.95;
+          inactive_opacity = 0.80;
           drop_shadow = 0
             blur {
               enabled = true
@@ -204,6 +202,6 @@ config = mkIf cfg.enable {
       exec-once = nohup ~/Master/backgrounds/swww_randomize.sh ~/Master/backgrounds > output.log 2>/dev/null &
       exec-once = wl-paste --type text --watch cliphist store && wl-paste --type image --watch cliphist store && mako &
     ";
-  };
+  
 };
 }

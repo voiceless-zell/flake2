@@ -1,13 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, isNIXOS, ... }:
 with lib;
 let
   cfg = config.modules.waybar;
 in{
 
-  options.modules.waybar = { enable = mkEnableOption "waybar"; };
-  config = mkIf cfg.enable {
   programs.waybar = {
-    enable = true;
+    enable = isNIXOS;
     systemd = {
       enable = true;
      target = "hyprland-session.target";
@@ -16,5 +14,4 @@ in{
   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
     mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
   });
-  };
 }
