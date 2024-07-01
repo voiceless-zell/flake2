@@ -35,6 +35,7 @@ in {
       fl = "cd ~/flake2/ && v";
       notes = "cd ~/notes/ && v";
       music = "ncspot";
+      vm = "sudo virsh net-start default";
     };
   };
   };

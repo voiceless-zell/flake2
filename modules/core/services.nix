@@ -1,7 +1,7 @@
-{...}: {
+{ isNIXOS, ...}: {
   services = {
-    gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
+    gvfs.enable = isNIXOS;
+    gnome.gnome-keyring.enable = isNIXOS;
     dbus.enable = true;
     openssh = {
       enable = true;
@@ -12,14 +12,14 @@
     };
     self-deploy.sshKeyFile = "~/.ssh/id_ed25519";
     ollama = {
-      enable = true;
+      enable = isNIXOS;
       acceleration = "cuda";#find why over ride package
     };
     displayManager = {
         sddm = {
-            enable = true;
+            enable = isNIXOS;
             wayland = {
-                enable = true;
+                enable = isNIXOS;
               };
           };
       };

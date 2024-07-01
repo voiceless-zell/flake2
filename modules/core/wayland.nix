@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, isNIXOS, ... }:
 {
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = isNIXOS;
   xdg.portal = {
-    enable = true;
-    wlr.enable = true;
+    enable = isNIXOS;
+    wlr.enable = isNIXOS;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
     ];

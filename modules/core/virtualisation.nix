@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, isNIXOS, ... }:{
 
   environment.systemPackages = with pkgs; [
   virt-manager
@@ -12,14 +12,14 @@
   ];
     virtualisation = {
     libvirtd = {
-      enable = true;
+      enable = isNIXOS;
       qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
+        swtpm.enable = isNIXOS;
+        ovmf.enable = isNIXOS;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
-    spiceUSBRedirection.enable = true;
+    spiceUSBRedirection.enable = isNIXOS;
   };
-  services.spice-vdagentd.enable = true;
+  services.spice-vdagentd.enable = isNIXOS;
 }
