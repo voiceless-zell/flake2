@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }: {
+{ inputs, config, lib, pkgs, isNIXOS, ... }: {
   imports =
        [ (import ./waybar) ]
     ++ [ (import ./firefox) ]
@@ -40,6 +40,5 @@
         wlogout.enable = true;
         packages.enable = true;
         gtk.enable = true;
-        firefox.enable = true;
     };
 }
