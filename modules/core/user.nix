@@ -12,7 +12,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs isNIXOS; };
     users.zell = {
       imports = [ (import ./../home/zell.nix) ];
       home.username = "zell";
