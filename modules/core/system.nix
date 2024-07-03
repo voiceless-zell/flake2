@@ -1,6 +1,7 @@
 { self
 , pkgs
 , inputs
+, isNIXOS
 , ...
 }: 
 let
@@ -12,9 +13,9 @@ in{
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://nix-gaming.cachix.org" ];
-      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
-    };
+      substituters = if isNIXOS then [ "https://nix-gaming.cachix.org" ] else [];
+      trusted-public-keys = if isNIXOS then [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ] else [];   
+      };
     gc = {
       automatic = true;
       dates = "weekly";

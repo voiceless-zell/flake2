@@ -61,9 +61,9 @@ services.hardware.bolt.enable = true;
   ];
   };
   powerManagement.cpuFreqGovernor = "performance";
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "client";
-    };
+ # services.tailscale = {
+ #   enable = true;
+ #   useRoutingFeatures = "client";
+ #   };
 
 }
