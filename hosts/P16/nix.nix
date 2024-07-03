@@ -24,21 +24,20 @@ boot.kernel.sysctl = {
     videoDrivers = [ "nvidia" "intel" ];
     displayManager.sddm = {
       enable = true;
-      wayland = {
-        enable = true;
-        
-        };
     };
     desktopManager.gnome = {
         enable = true;
       };
-    libinput = {
+    };
+  
+   services.libinput = {
       enable = true;
       mouse = {
         accelProfile = "flat";
       };
-    };
-  };
+   };
+
+services.displayManager.sddm.wayland.enable = true;
 services.gvfs.enable = true;
 services.hardware.bolt.enable = true;
  hardware.nvidia = {
@@ -53,7 +52,7 @@ services.hardware.bolt.enable = true;
       nvidiaBusId = "PCI:1:00:0";
      };   
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
     intel-compute-runtime

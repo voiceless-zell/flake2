@@ -1,4 +1,4 @@
-{inputs, nixpkgs, self, nixos-hardware, ...}:
+{inputs, nixpkgs, self, nixos-hardware, nixos-wsl, ...}:
 let system = "x86_64-linux";
 pkgs = import nixpkgs {
   inherit system;
@@ -20,4 +20,11 @@ in
     [ (../../hosts/P16/default.nix)]
    ;
   };
+  WSL = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit self inputs;isNIXOS = false;};
+      modules = 
+      [ (../../hosts/WSL/default.nix)]
+   ++ [ (nixos-wsl.nixosModules.default)]
+      ;
+    };
 }

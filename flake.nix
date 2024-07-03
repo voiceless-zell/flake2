@@ -13,6 +13,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 # nvim plugins
     obsidian-nvim = { url = "github:epwalsh/obsidian.nvim"; flake = false; };
     vimwiki = { url = "github:vimwiki/vimwiki"; flake = false; };    
@@ -23,10 +24,10 @@
     };
   
 
-  outputs = { self, nixpkgs, nixos-hardware, ... } @ inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, nixos-wsl, ... } @ inputs: {
 
     nixosConfigurations = import ./modules/core/default.nix {
-      inherit self nixpkgs inputs nixos-hardware ;
+      inherit self nixpkgs inputs nixos-hardware nixos-wsl ;
     };
   };
 }
