@@ -8,7 +8,7 @@ in{
     enable = isNIXOS;
     systemd = {
       enable = true;
-     target = "hyprland-session.target";
+     target = "xdg-desktop-autostart.target";
     };
   };
 #  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {

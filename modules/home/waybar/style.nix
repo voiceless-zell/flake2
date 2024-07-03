@@ -153,7 +153,6 @@ window#waybar.empty #window {
     padding-left: 10px;
     padding-right: 10px;
 }
-#pulseaudio,
 #cpu {
        border-radius: 16px;
     background-color: #394b70;
@@ -166,21 +165,6 @@ window#waybar.empty #window {
     padding-left: 10px;
     padding-right: 10px;
 }
-
-#sway-language,
-#backlight,
-#custom-storage,
-#custom-cpu_speed,
-#custom-powermenu,
-#custom-spotify,
-#custom-weather,
-#custom-mail,
-#custom-media {
-    margin: 0px 0px 0px 10px;
-    padding: 0 5px;
-    /* border-top: 3px solid rgba(217, 216, 216, 0.5); */
-}
-
  #clock {
     margin:     0px 16px 0px 10px;
     min-width:  140px;

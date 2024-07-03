@@ -1,10 +1,10 @@
-{ ... }: {
-  sound.enable = true;
+{ isNIXOS, ... }: {
+  sound.enable = isNIXOS;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    enable = isNIXOS;
+    alsa.enable = isNIXOS;
+    alsa.support32Bit = isNIXOS;
+    pulse.enable = isNIXOS;
   };
 }
