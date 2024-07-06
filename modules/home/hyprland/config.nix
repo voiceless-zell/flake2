@@ -198,8 +198,9 @@ in{
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
       exec-once = dbus-update-activation-environment --systemd &
       exec-once = swww init && swaylock && notify-send 'Hey $USER, Welcome back' && load-env 
-      exec-once = nohup ~/Master/backgrounds/swww_randomize.sh ~/Master/backgrounds > output.log 2>/dev/null &
+      exec-once = nohup ~/flake2/backgrounds/swww_randomize.sh ~/flake2/backgrounds > output.log 2>/dev/null &
       exec-once = wl-paste --type text --watch cliphist store && wl-paste --type image --watch cliphist store && mako &
+
     ";
   
 };
