@@ -16,11 +16,10 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 # nvim plugins
     obsidian-nvim = { url = "github:epwalsh/obsidian.nvim"; flake = false; };
-    vimwiki = { url = "github:vimwiki/vimwiki"; flake = false; };    
 # Star Citizen
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
-
+    NUR.url = "github:nix-community/NUR";
     };
   
 

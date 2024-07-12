@@ -1,41 +1,54 @@
 { pkgs, inputs, config, ... }:
 {
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [ "amdgpu" ];
   boot.kernel.sysctl = {
   "vm.max_map_count" = 20971520;
   "fs.file-max" = 524288;
 };
-#boot.initrd.preDeviceCommands = ''
-#  DEVS="0000:01:00.0 0000:01:00.1"
-#  for DEV in $DEVS; do
-#    echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
-#  done
-#  modprobe -i vfio-pci
-#'';
-boot.kernelParams = [ "intel_iommu=on" "pcie_aspm=off" ];
-boot.initrd.availableKernelModules = [  "vfio-pci"];
-  networking = {
+nixpkgs.config.allowUnfree = true;
+ networking = {
     hostName = "G14";
-    networkmanager.enable = true;
-    firewall.enable = false;
   };
   zramSwap.enable = true;
-   services.xserver = {
+  services.xserver = {
     enable = true;
     xkb.layout = "us";
-   videoDrivers = [  "nvidia"  ];
+    videoDrivers = [ "nvidia"  "modesetting" ];
     desktopManager.gnome = {
         enable = true;
+        };
+        libinput = {
+        enable = true;
+        mouse = {
+            accelProfile = "flat";
+          };
       };
-   };
-  hardware = {
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-      ];
-     };
-  };
+    };
+    hardware = {
+      nvidia = {
+          modesetting.enable = true;
+          powerManagement.enable = false;
+          open = false;
+          package = config.boot.kernelPackages.nvidiaPackages.stable;
+          nvidiaSettings = true;
+          prime = {
+              amdgpuBusId = "PCI:4:0:0";
+              nvidiaBusId = "PCI:1:0:0";
+            };
+        };
+      opengl = {
+        enable = true;
+        extraPackages = with pkgs; [
+        ];
+      };
+    };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.gvfs.enable = true;
+  #services.tailscale = {
+  #  enable = true;
+  #  useRoutingFeatures = "client";
+  #  };
+    services.asusd.enable = true;
 }

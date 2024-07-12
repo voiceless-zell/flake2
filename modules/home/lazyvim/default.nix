@@ -118,7 +118,7 @@ in {
             -- import/override with your plugins
             { import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
-            { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+            { "nvim-treesitter/nvim-treesitter", opts = { auto_install = false, ensure_installed = {} } },
             { "epwalsh/obsidian.nvim", version = "*",  ft= "markdown", lazy = false },
             { "vimwiki/vimwiki", version = "*"}
           },
